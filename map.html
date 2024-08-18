@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Continents Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .map-container {
+            position: relative;
+            width: 600px; /* Adjust the width as needed */
+            height: 300px; /* Adjust the height as needed */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAgEBAP0llYAAAAABJRU5ErkJggg=='); /* Example base64 image */
+            background-size: cover;
+        }
+        .continent {
+            position: absolute;
+            display: block;
+            width: 100px; /* Adjust size for each continent */
+            height: 50px; /* Adjust size for each continent */
+            text-align: center;
+            line-height: 50px;
+            color: white; /* Adjust text color as needed */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        #africa { top: 150px; left: 200px; background-color: rgba(0, 128, 0, 0.5); }
+        #asia { top: 30px; left: 300px; background-color: rgba(255, 0, 0, 0.5); }
+        #europe { top: 60px; left: 400px; background-color: rgba(0, 0, 255, 0.5); }
+        #north-america { top: 150px; left: 100px; background-color: rgba(255, 165, 0, 0.5); }
+        #south-america { top: 220px; left: 100px; background-color: rgba(255, 192, 203, 0.5); }
+        #australia { top: 220px; left: 450px; background-color: rgba(0, 255, 255, 0.5); }
+        #antarctica { top: 270px; left: 300px; background-color: rgba(255, 255, 255, 0.5); }
+    </style>
+</head>
+<body>
+    <div class="map-container">
+        <a href="#africa" class="continent" id="africa">AF</a>
+        <a href="#asia" class="continent" id="asia">AS</a>
+        <a href="#europe" class="continent" id="europe">EU</a>
+        <a href="#north-america" class="continent" id="north-america">NA</a>
+        <a href="#south-america" class="continent" id="south-america">SA</a>
+        <a href="#australia" class="continent" id="australia">AU</a>
+        <a href="#antarctica" class="continent" id="antarctica">AN</a>
+    </div>
+</body>
+</html>
