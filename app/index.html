@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Embedding with JavaScript</title>
+    <script>
+        function loadHTML() {
+            fetch(1.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('1').innerHTML = data;
+                });}
+      function loadHTML() {
+            fetch('2.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('2').innerHTML = data;
+                });}
+        function loadHTML() {
+            fetch('3.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('3').innerHTML = data;
+                });}
+        
+         function loadHTML() {
+            fetch('6.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('6').innerHTML = data;
+                });}
+        function loadHTML() {
+            fetch('9.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('9').innerHTML = data;
+                });}
+        
+         
+        
+        window.onload = loadHTML;
+    </script>
+</head>
+<body>
+    <div id="1"></div>
+    <div id="2"></div>
+    <div id="3"></div>
+    <div id="6"></div>
+    <div id="9"></div>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
+
