@@ -5,13 +5,13 @@
     <title>Embedding with JavaScript</title>
     <script>
         function loadHTML() {
-            fetch(1.html')
+            fetch(/app/1.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('1').innerHTML = data;
                 });}
       function loadHTML() {
-            fetch('2.html')
+            fetch('/app/2.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('2').innerHTML = data;
