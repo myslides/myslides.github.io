@@ -5,7 +5,7 @@
     <title>Embedding with JavaScript</title>
     <script>
         function loadHTML() {
-            const files = ['app/1.html', 'app/2.html', 'app/3.html', 'app/6.html', 'app/9.html'];
+            const files = ['https://myslides.github.io/app/1.html', 'https://myslides.github.io/app/2.html', 'https://myslides.github.io/app/3.html', 'https://myslides.github.io/app/6.html', 'https://myslides.github.io/app/9.html'];
             files.forEach((file, index) => {
                 fetch(file)
                     .then(response => response.text())
@@ -28,5 +28,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
+
 
 
