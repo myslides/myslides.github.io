@@ -5,38 +5,15 @@
     <title>Embedding with JavaScript</title>
     <script>
         function loadHTML() {
-            fetch(app/1.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('1').innerHTML = data;
-                });}
-      function loadHTML() {
-            fetch('app/2.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('2').innerHTML = data;
-                });}
-        function loadHTML() {
-            fetch(app/3.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('3').innerHTML = data;
-                });}
-        
-         function loadHTML() {
-            fetch('app/6.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('6').innerHTML = data;
-                });}
-        function loadHTML() {
-            fetch('app/9.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('9').innerHTML = data;
-                });}
-        
-         
+            const files = ['app/1.html', 'app/2.html', 'app/3.html', 'app/6.html', 'app/9.html'];
+            files.forEach((file, index) => {
+                fetch(file)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById(index + 1).innerHTML = data;
+                    });
+            });
+        }
         
         window.onload = loadHTML;
     </script>
@@ -48,7 +25,8 @@
     <div id="6"></div>
     <div id="9"></div>
     
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
+
 
