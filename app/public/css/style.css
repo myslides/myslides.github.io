@@ -1,11 +1,36 @@
 body {
-  background-color: #f8f9fa;
+  height: 100%;
+  background: #2A2E45;
+  color: #FFF;
+  font-family: "montserrat";
+}
+body:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: repeating-linear-gradient(120deg, #343956, #343956 2px, transparent 2px, transparent 17.5vw);
+  position: absolute;
 }
 
-.container {
-  margin-top: 20px;
+.card-sliders {
+  overflow: hidden;
+  height: 95vh;
 }
-
-img {
-  margin-bottom: 15px;
+.card-sliders .container {
+  height: 100% !important;
 }
+.card-sliders .container .row {
+  height: 100%;
+}
+.card-sliders .card-decks .card-deck {
+  display: none;
+}
+.card-sliders .card-decks .card-deck.deck-active {
+  display: flex;
+}
+.card-sliders .card-decks .card-deck .card {
+  font-size: 0.8rem;
+  border: 0;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 20px 2px #181A28;
+  color: #FFF;
