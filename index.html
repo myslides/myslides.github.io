@@ -5,42 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Slides Homepage</title>
     <meta http-equiv="refresh" content="0; url=http://myslides.github.io/app/" />
+    <style>
+    div {
+  /* Finally, a use for "groove"! */
+  border: 24px groove rebeccapurple;
+
+  display: table-cell;
+  border-radius: 999px;
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
+
+html, body { height: 100% }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: rebeccapurple;
+}
+<\style>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container my-5">
-        <div class="row">
-            <!-- Card 1 -->
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="7 Reasons to Go on Holidays">
-                    <div class="card-body">
-                        <h5 class="card-title">7 Reasons to Go on Holidays</h5>
-                        <a href="https://www.example.com" class="btn btn-primary">Learn More</a>
-                    </div>
+<div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
                 </div>
+              </div>
             </div>
-            <!-- Card 2 -->
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Hotels and Resorts in the World">
-                    <div class="card-body">
-                        <h5 class="card-title">Hotels and Resorts in the World</h5>
-                        <a href="map.html" class="btn btn-primary">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="7 Benefits of Holiday Ownerships">
-                    <div class="card-body">
-                        <h5 class="card-title">7 Benefits of Holiday Ownerships</h5>
-                        <a href="benefits.html" class="btn btn-primary">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-               
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Page will automatically redirect to the specified URL -->
+</body>
+</html>
