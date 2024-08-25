@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Slides Github Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app/public/css/style.css">
+    
+    <script>
+        function loadHTML() {
+            const files = [
+                { url: 'https://myslides.github.io/app/3.html', id: 'slide1' },
+                { url: 'https://myslides.github.io/app/6.html', id: 'slide2' },
+                { url: 'https://myslides.github.io/app/9.html', id: 'slide3' }
+            ];
+            
+            files.forEach(file => {
+                fetch(file.url)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById(file.id).innerHTML = data;
+                    })
+                    .catch(error => console.error('Error loading HTML:', error));
+            });
+        }
+        
+        window.onload = loadHTML;
+    </script>
+</head>
+<body>
+    <div id="slide1"></div>
+    <div id="slide2"></div>
+    <div id="slide3"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
