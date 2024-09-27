@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antartica - Extreme Conditions</title>
+    <title>Antarctica - Extreme Conditions</title> <!-- Title updated -->
     <style>
         body {
             margin: 0;
@@ -19,7 +19,7 @@
             color: white;
             font-size: 1em;
             opacity: 0.8;
-            animation: fall linear infinite;
+            animation: fall linear infinite, drift ease-in-out infinite;
         }
 
         @keyframes fall {
@@ -55,14 +55,11 @@
             snowflake.innerHTML = '❄'; // Snowflake character
             snowflake.style.left = Math.random() * 100 + 'vw'; // Random position across the width
             snowflake.style.fontSize = Math.random() * 1.5 + 0.5 + 'em'; // Random size
-            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random falling speed
+            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s, ${Math.random() * 2 + 2}s`; // Random falling speed and drift speed
             snowflake.style.animationDelay = Math.random() * 5 + 's'; // Random start time
             
-            // Add random horizontal drift
-            snowflake.style.animationName = `fall, drift`;
-            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s, ${Math.random() * 2 + 2}s`;
-            snowflake.style.animationTimingFunction = `linear, ease-in-out`;
-            snowflake.style.animationIterationCount = 'infinite';
+            // Set the animation names
+            snowflake.style.animationName = 'fall, drift';
 
             body.appendChild(snowflake);
         }
