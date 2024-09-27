@@ -30,6 +30,18 @@
                 transform: translateY(100vh);
             }
         }
+
+        @keyframes drift {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px); /* Move to the right */
+            }
+            100% {
+                transform: translateX(-20px); /* Move to the left */
+            }
+        }
     </style>
 </head>
 <body>
@@ -45,6 +57,13 @@
             snowflake.style.fontSize = Math.random() * 1.5 + 0.5 + 'em'; // Random size
             snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random falling speed
             snowflake.style.animationDelay = Math.random() * 5 + 's'; // Random start time
+            
+            // Add random horizontal drift
+            snowflake.style.animationName = `fall, drift`;
+            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s, ${Math.random() * 2 + 2}s`;
+            snowflake.style.animationTimingFunction = `linear, ease-in-out`;
+            snowflake.style.animationIterationCount = 'infinite';
+
             body.appendChild(snowflake);
         }
     </script>
