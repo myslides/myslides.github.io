@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowfall Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://loremflickr.com/1080/1080/antartica') no-repeat center center fixed; /* Snowy mountain image */
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10%;
+            color: white;
+            font-size: 1em;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const numberOfSnowflakes = 100; // Number of snowflakes
+        const body = document.body;
+
+        for (let i = 0; i < numberOfSnowflakes; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄'; // Snowflake character
+            snowflake.style.left = Math.random() * 100 + 'vw'; // Random position across the width
+            snowflake.style.fontSize = Math.random() * 1.5 + 0.5 + 'em'; // Random size
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random falling speed
+            snowflake.style.animationDelay = Math.random() * 5 + 's'; // Random start time
+            body.appendChild(snowflake);
+        }
+    </script>
+</body>
+</html>
