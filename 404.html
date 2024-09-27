@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Snowfall Effect</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #282c34;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh; /* Full viewport height */
+			position: relative; /* Allow absolute positioning for snowflakes */
+		}
+
+		.snowflake {
+			position: absolute;
+			top: -10%;
+			color: white;
+			font-size: 1em;
+			opacity: 0.8;
+			animation: fall linear infinite;
+		}
+
+		@keyframes fall {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(100vh);
+			}
+		}
+
+		.center-text {
+			position: relative;
+			color: white;
+			font-size: 3em; /* Adjust size as needed */
+			font-weight: bold;
+			border: 4px solid black; /* Black border */
+			padding: 20px; /* Padding inside the border */
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better visibility */
+			z-index: 1; /* Bring text above snowflakes */
+		}
+	</style>
+</head>
+<body>
+	<div class="center-text">Let it Snow!</div> <!-- Centered Text -->
+
+	<script>
+		const numberOfSnowflakes = 100;
+		const body = document.body;
+
+		for (let i = 0; i < numberOfSnowflakes; i++) {
+			const snowflake = document.createElement('div');
+			snowflake.classList.add('snowflake');
+			const snowflakeCharacters = ['❄', '❅', '❆', '❄', '❄']; // Different snowflake characters
+			snowflake.innerHTML = snowflakeCharacters[Math.floor(Math.random() * snowflakeCharacters.length)];
+			snowflake.style.left = Math.random() * 100 + 'vw'; // Random position across the width
+			snowflake.style.fontSize = Math.random() * 1.5 + 0.5 + 'em'; // Random size
+			snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random falling speed
+			snowflake.style.animationDelay = Math.random() * 5 + 's'; // Random start time
+			body.appendChild(snowflake);
+		}
+	</script>
+</body>
+</html>
