@@ -58,4 +58,101 @@
         <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
             <h3 class="holiday-title">New York</h3>
             <p><b>The atmosphere in New York is lorem ipsum.</b></p>
-        </d
+        </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+        <img src="https://picsum.photos/400/300?random=3" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+            <h3 class="holiday-title">Chicago</h3>
+            <p><b>Thank you, Chicago - A night we won't forget.</b></p>
+        </div>
+    </div>
+
+    <!-- The Band Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+        <h2 class="w3-wide">Today</h2>
+        <h3 id="today-date"></h3> <!-- Placeholder for today's date -->
+        <p class="w3-opacity"><i>We love music</i></p>
+        <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="w3-row w3-padding-32">
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="https://picsum.photos/400/300?random=4" class="w3-round w3-margin-bottom" alt="Band Member" style="width:60%">
+            </div>
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="https://picsum.photos/400/300?random=5" class="w3-round w3-margin-bottom" alt="Band Member" style="width:60%">
+            </div>
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="https://picsum.photos/400/300?random=6" class="w3-round" alt="Band Member" style="width:60%">
+            </div>
+        </div>
+        <div class="w3-row w3-padding-32">
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="https://picsum.photos/400/300?random=7" class="w3-round w3-margin-bottom" alt="Band Member" style="width:60%">
+            </div>
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="https://picsum.photos/400/300?random=8" class="w3-round w3-margin-bottom" alt="Band Member" style="width:60%">
+            </div>
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="https://picsum.photos/400/300?random=9" class="w3-round" alt="Band Member" style="width:60%">
+            </div>
+        </div>
+    </div>
+
+    <!-- The Tour Section -->
+    <div class="w3-black" id="tour">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR BLACKOUT DATES</h2>
+            <p class="w3-opacity w3-center"><i>Remember these dates!</i></p>
+            <table class="w3-table w3-striped w3-white">
+                <tr>
+                    <th>DATES</th>
+                </tr>
+                <tr>
+                    <td>20 DECEMBER to 5 JANUARY</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        <h2 class="w3-wide w3-center">CONTACT</h2>
+        <p class="w3-opacity w3-center"><i>We'd love to hear from you!</i></p>
+        <form action="https://www.w3schools.com/action_page.php">
+            <div class="w3-row w3-section">
+                <div class="w3-col m6 w3-center">
+                    <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                </div>
+                <div class="w3-col m6 w3-center">
+                    <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                </div>
+            </div>
+            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+            <button type="submit" class="w3-button w3-black w3-section">SEND MESSAGE</button>
+        </form>
+    </div>
+
+    <footer class="w3-center w3-black w3-padding-32">
+        <p>Powered by <a href="#" title="W3.CSS" class="w3-hover-text-green">W3.CSS</a></p>
+    </footer>
+</div>
+
+<script>
+    // Function to get today's date
+    function formatDate(date) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString(undefined, options);
+    }
+
+    // Set today's date in the H3 element
+    document.getElementById("today-date").innerText = formatDate(new Date());
+</script>
+
+</body>
+</html>
