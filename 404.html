@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Snowfall Effect</title>
+	<title>You're Lost in Glacier</title> <!-- Updated title -->
 	<style>
 		body {
 			margin: 0;
@@ -15,6 +15,7 @@
 			align-items: center;
 			height: 100vh; /* Full viewport height */
 			position: relative; /* Allow absolute positioning for snowflakes */
+			flex-direction: column; /* Allow vertical stacking of elements */
 		}
 
 		.snowflake {
@@ -46,10 +47,29 @@
 			background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better visibility */
 			z-index: 1; /* Bring text above snowflakes */
 		}
+
+		.home-button {
+			margin-top: auto; /* Push button to the bottom */
+			background-color: blue; /* Blue background */
+			color: white; /* White text */
+			border: none; /* No border */
+			padding: 15px 30px; /* Padding */
+			font-size: 1.2em; /* Font size */
+			cursor: pointer; /* Pointer cursor */
+			border-radius: 5px; /* Rounded corners */
+			z-index: 1; /* Bring button above snowflakes */
+		}
+
+		.home-button:hover {
+			background-color: darkblue; /* Darker blue on hover */
+		}
 	</style>
 </head>
 <body>
-	<div class="center-text">Let it Snow!</div> <!-- Centered Text -->
+	<div class="center-text">Welcome to Antarctica</div> <!-- Centered Text -->
+
+	<!-- Home Button -->
+	<button class="home-button" onclick="window.location.href='/'">Home</button>
 
 	<script>
 		const numberOfSnowflakes = 100;
