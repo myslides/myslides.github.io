@@ -1,158 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Holiday Ownership</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Ownership Presentation</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lora:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <style>
-        body {font-family: "Lato", sans-serif}
-        .pmySlides {display: none;}
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+
+        .hero {
+            position: relative;
+            height: 600px;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero .jiffy-slider {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .hero .jiffy-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            color: #007bff;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .footer .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .comparison-table {
+            margin: 20px auto;
+        }
     </style>
+
+    <!-- Jiffy Slider CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jiffy-slider/1.1.1/jiffy-slider.min.css">
 </head>
 <body>
 
-<!-- Navbar -->
-<div class="w3-top">
-    <div class="w3-bar w3-black w3-card">
-        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-        <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
-        <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-        <div class="w3-dropdown-hover w3-hide-small">
-            <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
-            <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-                <a href="#" class="w3-bar-item w3-button">Extras</a>
-                <a href="#" class="w3-bar-item w3-button">Media</a>
+    <!-- Header Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Holiday Ownership</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#properties">Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#utilization">Utilization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#comparison">Comparison</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#myMembers">My Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    </nav>
+
+    <!-- Hero Section with Jiffy Slider -->
+    <div class="hero" style="margin-top: 56px;">
+        <div class="jiffy-slider">
+            <img src="https://picsum.photos/1200/600?random=1" alt="Popular Destination 1">
+            <img src="https://picsum.photos/1200/600?random=2" alt="Popular Destination 2">
+            <img src="https://picsum.photos/1200/600?random=3" alt="Popular Destination 3">
+            <img src="https://picsum.photos/1200/600?random=4" alt="Popular Destination 4">
+        </div>
+        <div class="container">
+            <h1>Your Dream Holiday Awaits</h1>
+            <p>Travel every year for 6 nights and 7 days at our luxurious properties worldwide!</p>
+        </div>
     </div>
+
+    <!-- Features Section -->
+    <div id="features" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Features of Holiday Ownership</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">🏨</div>
+                    <h3>Luxury Properties</h3>
+                    <p>Choose from 3 to 5-star resorts, villas, bungalows, and more in 110 countries.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Travel with Loved Ones</h3>
+                    <p>Enjoy unforgettable holidays with family, friends, and relatives.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">🚍</div>
+                    <h3>Transportation Discounts</h3>
+                    <p>Get discounts on flights, buses, and trains for your travel convenience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Properties Section -->
+    <div id="properties" class="section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Explore Our Properties</h2>
+            <p class="text-center">We offer a variety of properties, including:</p>
+            <ul class="list-group">
+                <li class="list-group-item">🏝️ Resorts</li>
+                <li class="list-group-item">🏡 Villas</li>
+                <li class="list-group-item">🏖️ Bungalows</li>
+                <li class="list-group-item">🚢 Cruises</li>
+                <li class="list-group-item">🌲 Tree Houses</li>
+                <li class="list-group-item">🏠 Houseboats</li>
+            </ul>
+            <p class="text-center mt-4">With 4,500 brands affiliated globally, your holiday experience is guaranteed!</p>
+        </div>
+    </div>
+
+    <!-- Utilization Section -->
+    <div id="utilization" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Utilization of Your Ownership</h2>
+            <ol>
+                <li>You can save your week for next year if you can't travel.</li>
+                <li>Borrow from next year to extend your holidays up to 21 days.</li>
+                <li>Split your holidays into different segments (4 nights, 5 days, etc.).</li>
+                <li>Gift your holiday to family or friends for special occasions.</li>
+                <li>Sell your week for any amount you choose.</li>
+                <li>Transfer your ownership to family or friends.</li>
+                <li>Exchange your week for a fee ranging from ₹69 to ₹359, depending on the location.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Comparison Section -->
+<!-- Bootstrap CDN for CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="table_component" role="region" tabindex="0">
+<table class="table"> <!-- Only default Bootstrap table class applied -->
+    <caption>Your Way vs Our Way</caption> <!-- Caption updated -->
+    <thead>
+        <tr>
+            <th>Your Way</th>
+            <th>Our Way</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>UK 35<br>GA 40<br>HP 45<br>AN 50<br>IN 120<br>IN 120<br>Total 2,90,000/-</td>
+            <td>UK free<br>GA free&nbsp;<br>HP free<br>AN free<br>IN 169$-359$<br>IN 169$-359$<br>Total 60,000/-
+            </td>
+        </tr>
+        <tr>
+            <td>6 % to 8 % inflation&nbsp;</td>
+            <td>0 % inflation&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Standard property&nbsp;</td>
+            <td>Luxury Property&nbsp;</td>
+        </tr>
+        <tr>
+            <td>India</td>
+            <td>India + International&nbsp;</td>
+        </tr>
+        <tr>
+            <td>2 Adults&nbsp;</td>
+            <td>Family Friends Relatives&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Normal Photos&nbsp;<br>Normal Videos<br>Normal Memories&nbsp;</td>
+            <td>📸Better Photos<br>🎥Better Videos<br>🛀Better Memories&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Total 4,10,000/- for 6 Holidays&nbsp;</td>
+            <td>4,10,000/- for 25 Holidays&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
 </div>
 
-<!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TOUR</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
-</div>
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
-
-    <!-- Automatic Slideshow Images -->
-    <div class="mySlides w3-display-container w3-center">
-        <img src="https://picsum.photos/400/300?random=1" style="width:100%">
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-            <h3 class="holiday-title">Los Angeles</h3>
-            <p><b>We had the best time playing at Venice Beach!</b></p>
-        </div>
-    </div>
-    <div class="mySlides w3-display-container w3-center">
-        <img src="https://picsum.photos/400/300?random=2" style="width:100%">
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-            <h3 class="holiday-title">New York</h3>
-            <p><b>The atmosphere in New York is lorem ipsum.</b></p>
-        </div>
-    </div>
-    <div class="mySlides w3-display-container w3-center">
-        <img src="https://picsum.photos/400/300?random=3" style="width:100%">
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-            <h3 class="holiday-title">Chicago</h3>
-            <p><b>Thank you, Chicago - A night we won't forget.</b></p>
-        </div>
-    </div>
-
-    <!-- The Band Section -->
-    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-        <h2 class="w3-wide">Today</h2>
-        <h3 id="today-date"></h3> <!-- Placeholder for today's date -->
-        <p class="w3-opacity"><i>We love music</i></p>
-        <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class="w3-row w3-padding-32">
-            <div class="w3-third">
-                <p>Name</p>
-                <img src="https://picsum.photos/400/300?random=4" class="w3-round w3-margin-bottom" alt="Band Member" style="width:60%">
-            </div>
-            <div class="w3-third">
-                <p>Name</p>
-                <img src="https://picsum.photos/400/300?random=5" class="w3-round w3-margin-bottom" alt="Band Member" style="width:60%">
-            </div>
-            <div class="w3-third">
-                <p>Name</p>
-                <img src="https://picsum.photos/400/300?random=6" class="w3-round" alt="Band Member" style="width:60%">
-            </div>
-        </div>
-        <div class="w3-row w3-padding-32">
-            <div class="w3-third">
-                <p>Name</p>
-                <img src="https://picsum.photos/400/300?random=7" class="w3-round w3-margin-bottom" alt="Band Member" style="width:60%">
-            </div>
-            <div class="w3-third">
-                <p>Name</p>
-                <img src="https://picsum.photos/400/300?random=8" class="w3-round w3-margin-bottom" alt="Band Member" style="width:60%">
-            </div>
-            <div class="w3-third">
-                <p>Name</p>
-                <img src="https://picsum.photos/400/300?random=9" class="w3-round" alt="Band Member" style="width:60%">
-            </div>
-        </div>
-    </div>
-
-    <!-- The Tour Section -->
-    <div class="w3-black" id="tour">
-        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-            <h2 class="w3-wide w3-center">OUR BLACKOUT DATES</h2>
-            <p class="w3-opacity w3-center"><i>Remember these dates!</i></p>
-            <table class="w3-table w3-striped w3-white">
-                <tr>
-                    <th>DATES</th>
-                </tr>
-                <tr>
-                    <td>20 DECEMBER to 5 JANUARY</td>
-                </tr>
-            </table>
+    <!-- My Members Section -->
+    <div id="myMembers" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">My Members</h2>
+            <p class="text-center">Testimonials and feedback from our valued members will be showcased here.</p>
+            <!-- Placeholder for future testimonial content -->
+            <p class="text-center">Coming Soon!</p>
         </div>
     </div>
 
     <!-- Contact Section -->
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-        <h2 class="w3-wide w3-center">CONTACT</h2>
-        <p class="w3-opacity w3-center"><i>We'd love to hear from you!</i></p>
-        <form action="https://www.w3schools.com/action_page.php">
-            <div class="w3-row w3-section">
-                <div class="w3-col m6 w3-center">
-                    <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+    <div id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <p class="text-center">For inquiries and more information, please reach out to us!</p>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
                 </div>
-                <div class="w3-col m6 w3-center">
-                    <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
                 </div>
-            </div>
-            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-            <button type="submit" class="w3-button w3-black w3-section">SEND MESSAGE</button>
-        </form>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
     </div>
 
-    <footer class="w3-center w3-black w3-padding-32">
-        <p>Powered by <a href="#" title="W3.CSS" class="w3-hover-text-green">W3.CSS</a></p>
+    <!-- Footer Section -->
+    <footer class="footer text-center">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#homeResorts">Our Home Resorts</a></li>
+                <li><a href="#ourExchange">Our Exchange</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#terms">Terms and Conditions</a></li>
+                <li><a href="#howToBook">How to Book Your Holiday</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <p class="mb-0 mt-3">Website created by Holiday Consultant Aayush Aghav.</p>
+        </div>
     </footer>
-</div>
 
-<script>
-    // Function to get today's date
-    function formatDate(date) {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return date.toLocaleDateString(undefined, options);
-    }
+    <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-    // Set today's date in the H3 element
-    document.getElementById("today-date").innerText = formatDate(new Date());
-</script>
-
+    <!-- jQuery (needed for Jiffy Slider) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Jiffy Slider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jiffy-slider/1.1.1/jiffy-slider.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.jiffy-slider').jiffySlider();
+        });
+    </script>
 </body>
 </html>
