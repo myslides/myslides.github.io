@@ -1,199 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Destinations</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Famous Indian Destinations Slider</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f8f9fa;
         }
-
-        h1,
-        h2,
-        h3 {
-            color: black;
-            font-weight: bold;
+        .slider-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-size: cover;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 10px;
         }
-
-        .animated-line {
-            width: 100%;
-            height: 3px;
-            background: black;
-            border-radius: 5px;
-            animation: lineAnimation 2s infinite;
-            margin: 20px 0;
+        .slider-item:hover {
+            transform: scale(1.05);
         }
-
-        @keyframes lineAnimation {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            50% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
+        .destination-title {
+            font-size: 1.5rem;
+            margin: 0;
         }
-
-        .card-img-left {
-            width: 40%;
-            height: auto;
+        .destination-description {
+            margin: 10px 0 0;
+            font-size: 0.9rem;
         }
+      // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 700
 
-        .footer-links a {
-            margin: 0 10px;
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
+.titlebold {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 410;
+}
     </style>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Travel Destinations</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#carousel">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section id="carousel" class="mt-5 pt-5">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://picsum.photos/1080/566?1" class="d-block w-100" alt="Destination 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://picsum.photos/1080/566?2" class="d-block w-100" alt="Destination 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://picsum.photos/1080/566?3" class="d-block w-100" alt="Destination 3">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://picsum.photos/1080/566?4" class="d-block w-100" alt="Destination 4">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </section>
-
-    <div class="animated-line"></div>
-
-    <section id="destinations" class="container mt-5">
-        <h2 class="text-center">Top Destinations</h2>
-
-        <!-- Destination 1 -->
-        <div class="row my-4">
-            <div class="col-md-6 order-md-1">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img src="https://picsum.photos/400/300?random=1" class="card-img-left" alt="Destination 1">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title">Himachal Pradesh</h5>
-                                <a href="https://myslides.github.io/i/hp01.html" class="btn btn-primary">Explore</a>
-                            </div>
-                        </div>
+    <div class="container mt-5">
+        <h1 class="titlebold text-center">Domestic Holiday Destinations in India</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/golden_triangle');" onclick="location.href='i/d/golden_triangle.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Golden Triangle</h5>
+                        <p class="destination-description">Delhi, Agra, Jaipur.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6 order-md-0">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img src="https://picsum.photos/400/300?random=2" class="card-img-left" alt="Destination 2">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title">Goa</h5>
-                                <a href="https://myslides.github.io/i/hp01.html" class="btn btn-primary">Explore</a>
-                            </div>
-                        </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/kerala');" onclick="location.href='i/d/kerala.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Kerala</h5>
+                        <p class="destination-description">Serene backwaters and lush greenery.</p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Destination 2 -->
-        <div class="row my-4">
-            <div class="col-md-6 order-md-1">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img src="https://picsum.photos/400/300?random=3" class="card-img-left" alt="Destination 3">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title">Rajasthan</h5>
-                                <a href="https://myslides.github.io/i/hp01.html" class="btn btn-primary">Explore</a>
-                            </div>
-                        </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/goa');" onclick="location.href='i/d/goa.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Goa</h5>
+                        <p class="destination-description">Stunning beaches and vibrant nightlife.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6 order-md-0">
-                <div class="card">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img src="https://picsum.photos/400/300?random=4" class="card-img-left" alt="Destination 4">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title">Kerala</h5>
-                                <a href="https://myslides.github.io/i/hp01.html" class="btn btn-primary">Explore</a>
-                            </div>
-                        </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/rajasthan');" onclick="location.href='i/d/rajasthan.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Rajasthan</h5>
+                        <p class="destination-description">Forts and rich cultural heritage.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/himachal');" onclick="location.href='i/d/himachal_pradesh.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Himachal Pradesh</h5>
+                        <p class="destination-description">A paradise for adventure lovers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/ladakh');" onclick="location.href='i/d/leh_ladakh.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Leh-Ladakh</h5>
+                        <p class="destination-description">Breathtaking landscapes and monasteries.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/andaman');" onclick="location.href='i/d/andaman_islands.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Andaman Islands</h5>
+                        <p class="destination-description">Pristine beaches and coral reefs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/coorg');" onclick="location.href='i/d/mysore_coorg.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Mysore and Coorg</h5>
+                        <p class="destination-description">Royal heritage and coffee plantations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/sikkim');" onclick="location.href='i/d/sikkim.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Sikkim</h5>
+                        <p class="destination-description">Rich culture and stunning landscapes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/odisha');" onclick="location.href='i/d/odisha.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Odisha</h5>
+                        <p class="destination-description">Ancient temples and beautiful beaches.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/west_bengal');" onclick="location.href='i/d/west_bengal.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">West Bengal</h5>
+                        <p class="destination-description">Colonial architecture and tea gardens.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="slider-item" style="background-image: url('https://loremflickr.com/800/400/tamil_nadu');" onclick="location.href='i/d/tamil_nadu.html'">
+                    <div class="text-center">
+                        <h5 class="destination-title">Tamil Nadu</h5>
+                        <p class="destination-description">Famous for its temples and beaches.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <footer id="contact" class="mt-5">
-        <div class="footer-links text-center">
-            <a href="#about">About Us</a>
-            <a href="#faq">FAQ</a>
-            <a href="#terms">Terms of Service</a>
-            <a href="#privacy">Privacy Policy</a>
-        </div>
-        <div class="footer-copyright">
-            &copy; 2024 Travel Destinations. All Rights Reserved.
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
