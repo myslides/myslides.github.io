@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Testimonial Slider</title>
+    <style>
+        .card {
+            margin: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            height: 300px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+        .card img {
+            border-radius: 15px 15px 0 0;
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 15px;
+            height: 30%;
+        }
+        .card-info {
+            text-align: center;
+            padding: 10px;
+        }
+        .name {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        @media (min-width: 768px) {
+            .card {
+                flex-direction: column;
+                height: 300px;
+            }
+        }
+        @media (max-width: 767.98px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">What Our Guests Say</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" role="region">
+        <div class="carousel-inner">
+            <!-- Testimonial 1 -->
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/1.jpg" target="_blank" class="card">
+                            <img src="img/mem/1.jpg" alt="Photo of Renita and Prabhat Bavanwal">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">RENITA & PRABHAT BAVANWAL</h5>
+                                    <p><strong>Joined On:</strong> 15-10-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/2.jpg" target="_blank" class="card">
+                            <img src="img/mem/2.jpg" alt="Photo of Pooja and Aditya More">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">POOJA & ADITYA MORE</h5>
+                                    <p><strong>Joined On:</strong> 21-10-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/3.jpg" target="_blank" class="card">
+                            <img src="img/mem/3.jpg" alt="Photo of Anshu and Yogesh Prajapati">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">ANSHU & YOGESH PRAJAPATI</h5>
+                                    <p><strong>Joined On:</strong> 22-10-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/4.jpg" target="_blank" class="card">
+                            <img src="img/mem/4.jpg" alt="Photo of Gayatri and Vaibhav Ahire">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">GAYATRI & VAIBHAV AHIRE</h5>
+                                    <p><strong>Joined On:</strong> 22-10-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/5.jpg" target="_blank" class="card">
+                            <img src="img/mem/5.jpg" alt="Photo of Anushka and Kunal Patil">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">ANUSHKA & KUNAL PATIL</h5>
+                                    <p><strong>Joined On:</strong> 23-10-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/6.jpg" target="_blank" class="card">
+                            <img src="img/mem/6.jpg" alt="Photo of Kavitha and Robinson Dsouza">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">KAVITHA & ROBINSON DSOUZA</h5>
+                                    <p><strong>Joined On:</strong> 24-10-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 4 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/7.jpg" target="_blank" class="card">
+                            <img src="img/mem/7.jpg" alt="Photo of Neha and Krishna Singh">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">NEHA & KRISHNA SINGH</h5>
+                                    <p><strong>Joined On:</strong> 25-10-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/8.jpg" target="_blank" class="card">
+                            <img src="img/mem/8.jpg" alt="Photo of Mohini and Nandkishore Gitte">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">MOHINI & NANDKISHORE GITTE</h5>
+                                    <p><strong>Joined On:</strong> 30-10-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 5 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/9.jpg" target="_blank" class="card">
+                            <img src="img/mem/9.jpg" alt="Photo of Sangeeta and Mayur Rawal">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">SANGEETA & MAYUR RAWAL</h5>
+                                    <p><strong>Joined On:</strong> 04-11-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/10.jpg" target="_blank" class="card">
+                            <img src="img/mem/10.jpg" alt="Photo of Savita and Raju Kamble">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">SAVITA & RAJU KAMBLE</h5>
+                                    <p><strong>Joined On:</strong> 18-11-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 6 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/11.jpg" target="_blank" class="card">
+                            <img src="img/mem/11.jpg" alt="Photo of Kanchan and Atul Jamneka">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">KANCHAN & ATUL JAMNEKA</h5>
+                                    <p><strong>Joined On:</strong> 20-11-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/12.jpg" target="_blank" class="card">
+                            <img src="img/mem/12.jpg" alt="Photo of Anjali and Nilesh Phadke">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">ANJALI & NILESH PHADKE</h5>
+                                    <p><strong>Joined On:</strong> 30-11-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 7 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/13.jpg" target="_blank" class="card">
+                            <img src="img/mem/13.jpg" alt="Photo of Neelam and Sunil Joshi">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">NEELAM & SUNIL JOSHI</h5>
+                                    <p><strong>Joined On:</strong> 10-12-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/14.jpg" target="_blank" class="card">
+                            <img src="img/mem/14.jpg" alt="Photo of Rani and Pankaj Thakur">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">RANI & PANKAJ THAKUR</h5>
+                                    <p><strong>Joined On:</strong> 20-12-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 8 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/15.jpg" target="_blank" class="card">
+                            <img src="img/mem/15.jpg" alt="Photo of Priya and Shubham Kulkarni">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">PRIYA & SHUBHAM KULKARNI</h5>
+                                    <p><strong>Joined On:</strong> 28-12-2023</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/16.jpg" target="_blank" class="card">
+                            <img src="img/mem/16.jpg" alt="Photo of Priyanka and Ankur Joshi">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">PRIYANKA & ANKUR JOSHI</h5>
+                                    <p><strong>Joined On:</strong> 05-01-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 9 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/17.jpg" target="_blank" class="card">
+                            <img src="img/mem/17.jpg" alt="Photo of Suman and Manish Shukla">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">SUMAN & MANISH SHUKLA</h5>
+                                    <p><strong>Joined On:</strong> 15-01-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/18.jpg" target="_blank" class="card">
+                            <img src="img/mem/18.jpg" alt="Photo of Radhika and Nikhil Dange">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">RADHIKA & NIKHIL DANGE</h5>
+                                    <p><strong>Joined On:</strong> 25-01-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 10 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/19.jpg" target="_blank" class="card">
+                            <img src="img/mem/19.jpg" alt="Photo of Sneha and Akshay Gawde">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">SNEHA & AKSHAY GAWDE</h5>
+                                    <p><strong>Joined On:</strong> 10-02-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/20.jpg" target="_blank" class="card">
+                            <img src="img/mem/20.jpg" alt="Photo of Rani and Ramesh Patil">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">RANI & RAMESH PATIL</h5>
+                                    <p><strong>Joined On:</strong> 15-02-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 11 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/21.jpg" target="_blank" class="card">
+                            <img src="img/mem/21.jpg" alt="Photo of Sita and Chandramohan Chaudhary">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">SITA & CHANDRAMOHAN CHAUDHARY</h5>
+                                    <p><strong>Joined On:</strong> 20-02-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/22.jpg" target="_blank" class="card">
+                            <img src="img/mem/22.jpg" alt="Photo of Vidya and Jay Singh">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">VIDYA & JAY SINGH</h5>
+                                    <p><strong>Joined On:</strong> 25-02-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 12 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/23.jpg" target="_blank" class="card">
+                            <img src="img/mem/23.jpg" alt="Photo of Tara and Prem Singh">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">TARA & PREM SINGH</h5>
+                                    <p><strong>Joined On:</strong> 02-03-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/24.jpg" target="_blank" class="card">
+                            <img src="img/mem/24.jpg" alt="Photo of Aditi and Nitin Jadhav">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">ADITI & NITIN JADHAV</h5>
+                                    <p><strong>Joined On:</strong> 05-03-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 13 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/25.jpg" target="_blank" class="card">
+                            <img src="img/mem/25.jpg" alt="Photo of Komal and Gaurav Sharma">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">KOMAL & GAURAV SHARMA</h5>
+                                    <p><strong>Joined On:</strong> 10-03-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/26.jpg" target="_blank" class="card">
+                            <img src="img/mem/26.jpg" alt="Photo of Poonam and Rohit Bansal">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">POONAM & ROHIT BANSAL</h5>
+                                    <p><strong>Joined On:</strong> 15-03-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 14 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/27.jpg" target="_blank" class="card">
+                            <img src="img/mem/27.jpg" alt="Photo of Sheetal and Kamal Garg">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">SHEETAL & KAMAL GARG</h5>
+                                    <p><strong>Joined On:</strong> 20-03-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/28.jpg" target="_blank" class="card">
+                            <img src="img/mem/28.jpg" alt="Photo of Meenal and Gaurav Sharma">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">MEENAL & GAURAV SHARMA</h5>
+                                    <p><strong>Joined On:</strong> 30-03-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 15 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/29.jpg" target="_blank" class="card">
+                            <img src="img/mem/29.jpg" alt="Photo of Priyanka and Ramesh Rawat">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">PRIYANKA & RAMESH RAWAT</h5>
+                                    <p><strong>Joined On:</strong> 15-04-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/30.jpg" target="_blank" class="card">
+                            <img src="img/mem/30.jpg" alt="Photo of Aditi and Sahil Rajput">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">ADITI & SAHIL RAJPUT</h5>
+                                    <p><strong>Joined On:</strong> 20-04-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 16 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/31.jpg" target="_blank" class="card">
+                            <img src="img/mem/31.jpg" alt="Photo of Jyoti and Ajay Malhotra">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">JYOTI & AJAY MALHOTRA</h5>
+                                    <p><strong>Joined On:</strong> 25-04-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/32.jpg" target="_blank" class="card">
+                            <img src="img/mem/32.jpg" alt="Photo of Neelam and Ravi Kumar">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">NEELAM & RAVI KUMAR</h5>
+                                    <p><strong>Joined On:</strong> 02-05-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 17 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/33.jpg" target="_blank" class="card">
+                            <img src="img/mem/33.jpg" alt="Photo of Anjali and Deepak Agarwal">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">ANJALI & DEEPAK AGARWAL</h5>
+                                    <p><strong>Joined On:</strong> 10-05-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/34.jpg" target="_blank" class="card">
+                            <img src="img/mem/34.jpg" alt="Photo of Priya and Sanjay Rao">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">PRIYA & SANJAY RAO</h5>
+                                    <p><strong>Joined On:</strong> 15-05-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 18 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/35.jpg" target="_blank" class="card">
+                            <img src="img/mem/35.jpg" alt="Photo of Kavita and Ram Singh">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">KAVITA & RAM SINGH</h5>
+                                    <p><strong>Joined On:</strong> 20-05-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/36.jpg" target="_blank" class="card">
+                            <img src="img/mem/36.jpg" alt="Photo of Snehal and Akshay Sahu">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">SNEHAL & AKSHAY SAHU</h5>
+                                    <p><strong>Joined On:</strong> 30-05-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 19 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/37.jpg" target="_blank" class="card">
+                            <img src="img/mem/37.jpg" alt="Photo of Vani and Rakesh Thakur">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">VANI & RAKESH THAKUR</h5>
+                                    <p><strong>Joined On:</strong> 15-06-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/38.jpg" target="_blank" class="card">
+                            <img src="img/mem/38.jpg" alt="Photo of Anita and Shubham Patil">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">ANITA & SHUBHAM PATIL</h5>
+                                    <p><strong>Joined On:</strong> 25-06-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 20 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="img/mem/39.jpg" target="_blank" class="card">
+                            <img src="img/mem/39.jpg" alt="Photo of Gauri and Ajit Mhatre">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">GAURI & AJIT MHATRE</h5>
+                                    <p><strong>Joined On:</strong> 30-06-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="img/mem/40.jpg" target="_blank" class="card">
+                            <img src="img/mem/40.jpg" alt="Photo of Anjali and Vivek Naik">
+                            <div class="card-body">
+                                <div class="card-info">
+                                    <h5 class="name">ANJALI & VIVEK NAIK</h5>
+                                    <p><strong>Joined On:</strong> 05-07-2024</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
