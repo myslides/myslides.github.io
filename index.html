@@ -13,7 +13,12 @@
 
     <!-- Custom CSS -->
     <style>
-      body { font-family: 'Poppins', sans-serif; }
+body { font-family: 'Poppins', sans-serif; }
+footer{background-color:#bababa}
+footer .text-dark{color:#000}
+footer .text-dark:hover{text-decoration:underline}
+footer .list-unstyled{padding:0}
+footer .list-unstyled li{display:inline;margin-right:15px}
 h1, h2, h3 { font-family: 'Lora', serif; }
 .hero { position: relative; height: 600px; color: white; text-align: center; overflow: hidden; }
 .hero .jiffy-slider { position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; }
@@ -752,12 +757,27 @@ h1, h2, h3 { font-family: 'Lora', serif; }
 </div>
 </div>
     <!-- Footer Section -->
-    <footer class="footer text-center">
-        <div class="container">
-    
-            <p class="mb-0 mt-3">© 1994-2024 myslides.github.io </p>
+  <!-- Footer -->
+<footer class="bg-light text-center text-lg-start" style="background-color: #bababa;">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-8">
+                <p class="text-center">© 2024 Holiday Ownership. All Rights Reserved.</p>
+                <ul class="list-unstyled">
+                    <li><a href="about.html" class="text-dark">About</a></li>
+                    <li><a href="exchange.html" class="text-dark">Exchange</a></li>
+                    <li><a href="maintenance.html" class="text-dark">Maintenance</a></li>
+                    <li><a href="marketing_strategy.html" class="text-dark">Marketing Strategy</a></li>
+                    <li><a href="planyourvacation.html" class="text-dark">Plan Your Vacation</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-end">
+                <img src="img/MySlides.png" alt="Footer Image" class="img-fluid" style="max-height: 100px;">
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
 
     <!-- Bootstrap 5 JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
