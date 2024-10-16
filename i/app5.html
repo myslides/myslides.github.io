@@ -1,0 +1,146 @@
+<style>
+        /* Custom CSS for slider */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .membersSlides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300%; /* Adjust according to the number of slides */
+        }
+
+        .slide {
+            width: 100%;
+            flex-shrink: 0;
+            text-align: center; /* Center content */
+        }
+
+        .dots {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #bbb;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+    </style>
+
+<div class="container mt-5">
+    <div class="slider">
+        <div class="membersSlides" id="membersSlides"></div>
+        <div class="dots" id="membersDots"></div>
+    </div>
+</div>
+
+<script>
+  // data.js
+const membersData = [
+    {
+        photo: "https://via.placeholder.com/600x300?text=Slide+1",
+        name: "John Doe",
+        memberSince: "2022",
+    },
+    {
+        photo: "https://via.placeholder.com/600x300?text=Slide+2",
+        name: "Jane Smith",
+        memberSince: "2021",
+    },
+    {
+        photo: "https://via.placeholder.com/600x300?text=Slide+3",
+        name: "Mike Johnson",
+        memberSince: "2023",
+    },
+];
+
+// Function to generate slides dynamically
+function createMembersSlides() {
+    const slidesContainer = document.getElementById('membersSlides');
+    const dotsContainer = document.getElementById('membersDots');
+
+    membersData.forEach((member, index) => {
+        // Create slide element
+        const slideElement = document.createElement('div');
+        slideElement.classList.add('slide');
+        slideElement.innerHTML = `
+            <img src="${member.photo}" class="img-fluid" alt="${member.name}">
+            <h3>${member.name}</h3>
+            <p>Member Since: ${member.memberSince}</p>
+        `;
+        
+        slidesContainer.appendChild(slideElement);
+
+        // Create dot element
+        const dotElement = document.createElement('span');
+        dotElement.classList.add('dot');
+        dotElement.setAttribute('data-index', index);
+        if (index === 0) dotElement.classList.add('active');
+        
+        dotsContainer.appendChild(dotElement);
+    });
+}
+
+</script>
+<script>
+    let currentIndex = 0;
+
+    function updateMembersSlider(index) {
+        currentIndex = index;
+        const slides = document.getElementById('membersSlides');
+        const offset = -currentIndex * 100;
+        slides.style.transform = `translateX(${offset}%)`;
+
+        // Update dots
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        createMembersSlides(); // Call the function to generate slides
+        updateMembersSlider(currentIndex); // Initialize the slider
+
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                updateMembersSlider(index);
+            });
+        });
+
+        // Touch support
+        const slidesContainer = document.getElementById('membersSlides');
+        let startX;
+
+        slidesContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        slidesContainer.addEventListener('touchmove', (e) => {
+            const moveX = e.touches[0].clientX;
+            const threshold = 50;
+
+            if (startX - moveX > threshold) {
+                currentIndex = (currentIndex + 1) % membersData.length;
+                updateMembersSlider(currentIndex);
+            } else if (moveX - startX > threshold) {
+                currentIndex = (currentIndex - 1 + membersData.length) % membersData.length;
+                updateMembersSlider(currentIndex);
+            }
+        });
+    });
+</scrip>
