@@ -18,14 +18,13 @@
     <script>
         function loadHTML() {
             const files = [
-                { url: 'https://myslides.github.io/i/app1.2.html', id: 'app1' },
-                { url: 'https://myslides.github.io/i/app2.html', id: 'app2' },
-                { url: 'https://myslides.github.io/i/app3.html', id: 'app3' },
-                { url: 'https://myslides.github.io/i/app4.html', id: 'app4' },
-                { url: 'https://myslides.github.io/i/app5.html', id: 'app5' },
-                { url: 'https://myslides.github.io/i/app6.html', id: 'app6' },
-                { url: 'https://myslides.github.io/i/start.html', id: 'start' },
-                { url: 'https://myslides.github.io/i/finish.html', id: 'finish' },
+                { url: 'https://myslides.github.io/i/start.html', id: 'navigation' },
+                { url: 'https://myslides.github.io/i/app1.2.html', id: 'HeroSlider' },
+                { url: 'https://myslides.github.io/i/app2.html', id: 'Features' },
+                { url: 'https://myslides.github.io/i/app3.html', id: 'Explore' },
+                { url: 'https://myslides.github.io/i/app4.html', id: 'SaveMoney' },
+                { url: 'https://myslides.github.io/i/app5.html', id: 'Members' },
+                { url: 'https://myslides.github.io/i/app6.html', id: 'footer' }
             ];
 
             files.forEach(file => {
@@ -42,15 +41,14 @@
     </script>
 </head>
 <body>
-    <div id="start"></div>
-    <div id="app1"></div>
-    <div id="app2"></div>
-    <div id="app3"></div>
-    <div id="app4"></div>
-    <div id="app5"></div>
-    <div id="app6"></div>
-    <div id="finish"></div>
-
+    <div id="navigation"></div> <!-- Navigation bar -->
+    <div id="HeroSlider"></div> <!-- Hero image slider -->
+    <div id="Features"></div> <!-- Features section -->
+    <div id="Explore"></div> <!-- Explore section -->
+    <div id="SaveMoney"></div> <!-- Save money section -->
+    <div id="Members"></div> <!-- Members section -->
+    <div id="footer"></div> <!-- Footer section -->
+    
     <!-- Bootstrap 5 JS and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
