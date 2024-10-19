@@ -1,0 +1,204 @@
+/**
+ * Pure CSS slider/carousel with rollback when the animation is finished.
+ *
+ * It is strongly suggested not to use more than 25 slides.
+ * To keep a smooth transition between images use 30 seconds as animation duration and a max of
+ * 10 slides in total.
+ * 
+ * If you feel you need to speed up the slider, try to reduce the `$animation-duration` variable.
+ */
+/**
+ * The last transition between the slides is rolling back to the beginning creating a roll back effect.
+ * 
+ * If you prefer an effect that is continuosly looping through the slides check the following CodePen:
+ * https://codepen.io/riccardo-andreatta/full/rNxyYOM
+ */
+@-webkit-keyframes slide {
+  0% {
+    left: 0%;
+  }
+  8% {
+    left: 0%;
+  }
+  10% {
+    left: -100%;
+  }
+  18% {
+    left: -100%;
+  }
+  20% {
+    left: -200%;
+  }
+  28% {
+    left: -200%;
+  }
+  30% {
+    left: -300%;
+  }
+  38% {
+    left: -300%;
+  }
+  40% {
+    left: -400%;
+  }
+  48% {
+    left: -400%;
+  }
+  50% {
+    left: -500%;
+  }
+  58% {
+    left: -500%;
+  }
+  60% {
+    left: -600%;
+  }
+  68% {
+    left: -600%;
+  }
+  70% {
+    left: -700%;
+  }
+  78% {
+    left: -700%;
+  }
+  80% {
+    left: -800%;
+  }
+  88% {
+    left: -800%;
+  }
+  90% {
+    left: -900%;
+  }
+  98% {
+    left: -900%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes slide {
+  0% {
+    left: 0%;
+  }
+  8% {
+    left: 0%;
+  }
+  10% {
+    left: -100%;
+  }
+  18% {
+    left: -100%;
+  }
+  20% {
+    left: -200%;
+  }
+  28% {
+    left: -200%;
+  }
+  30% {
+    left: -300%;
+  }
+  38% {
+    left: -300%;
+  }
+  40% {
+    left: -400%;
+  }
+  48% {
+    left: -400%;
+  }
+  50% {
+    left: -500%;
+  }
+  58% {
+    left: -500%;
+  }
+  60% {
+    left: -600%;
+  }
+  68% {
+    left: -600%;
+  }
+  70% {
+    left: -700%;
+  }
+  78% {
+    left: -700%;
+  }
+  80% {
+    left: -800%;
+  }
+  88% {
+    left: -800%;
+  }
+  90% {
+    left: -900%;
+  }
+  98% {
+    left: -900%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+.slider {
+  font-family: Verdana, Geneva, sans-serif;
+  overflow: hidden;
+  width: 100%;
+}
+.slider__container {
+  position: relative;
+  -webkit-animation: 30s slide infinite;
+          animation: 30s slide infinite;
+  font-size: 0;
+  width: 1000%;
+}
+.slider__container figure {
+  display: inline-block;
+  width: 10%;
+}
+.slider__container figcaption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 32px;
+  color: #fff;
+  padding: 10px 16px;
+  text-shadow: 2px 2px 6px #222;
+  width: 100%;
+}
+
+/* General styles */
+body {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Navigation Menu */
+.navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0);
+  width: 100%;
+  z-index: 2;
+  margin-right: 32px;
+  text-align: right;
+  height: 80px;
+  width: auto;
+}
+.navigation__link {
+  font-size: 24px;
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  text-shadow: 0 0 6px #222222;
+}
+.navigation__link:hover {
+  color: #ededed;
+  text-shadow: 1px 1px 2px #222222;
+}
