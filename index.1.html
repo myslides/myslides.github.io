@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Ownership Presentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link href="https://myslides.github.io/css/styleone.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/my-slider.css"/>
+    <script>
+        function loadHTML() {
+            const files = [
+                { url: 'https://myslides.github.io/i/app1.1.html', id: 'app1' },
+                { url: 'https://myslides.github.io/i/app2.html', id: 'app2' },
+                { url: 'https://myslides.github.io/i/app3.html', id: 'app3' },
+                { url: 'https://myslides.github.io/i/app4.html', id: 'app4' },
+                { url: 'https://myslides.github.io/i/app5.html', id: 'app5' },
+                { url: 'https://myslides.github.io/i/app6.html', id: 'app6' },
+                { url: 'https://myslides.github.io/i/start.html', id: 'start' },
+                { url: 'https://myslides.github.io/i/finish.html', id: 'finish' }
+            ];
+            files.forEach(file => {
+                fetch(file.url).then(response => response.text())
+                .then(data => { document.getElementById(file.id).innerHTML = data; })
+                .catch(error => console.error('Error loading HTML:', error));
+            });
+        }
+        window.onload = loadHTML;
+    </script>
+</head>
+<body>
+    <div id="start"></div>
+    <div id="app1"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+    <div id="app4"></div>
+    <div id="app5"></div>
+    <div id="app6"></div>
+    <div id="finish"></div>
+    <script src="/js/ism-2.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jiffy-slider/1.1.1/jiffy-slider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script> $(document).ready(() => { $('.jiffy-slider').jiffySlider(); }); </script>
+</body>
+</html>
