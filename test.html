@@ -8,6 +8,7 @@
     <style>
         body {
             background-color: #f8f9fa;
+            padding-bottom: 80px; /* Add padding to avoid content overlap */
         }
         .navbar {
             margin-bottom: 20px;
@@ -46,9 +47,10 @@
             background-color: #343a40;
             color: white;
             padding: 20px 0;
-            position: absolute;
+            position: relative; /* Change to relative to avoid overlapping */
             width: 100%;
             bottom: 0;
+            left: 0;
         }
     </style>
 </head>
@@ -99,10 +101,11 @@
     let isTesting = false;
     let downloadXHR, uploadXHR;
     let totalDuration = 0;
+    let fileSize = 5 * 1024 * 1024; // Start with 5 MB
 
     $(document).ready(function() {
-        displayBrowserInfo(); // Display browser information on page load
-        startTest(); // Start test on page load
+        displayBrowserInfo();
+        startTest();
 
         $('#startTest').click(function() {
             startTest();
@@ -135,7 +138,6 @@
         $('#uploadResult').text('Calculating...');
         $('#totalTime').text('Calculating...');
 
-        // Start download test
         downloadTest();
     }
 
@@ -156,14 +158,14 @@
     function downloadTest() {
         const startTime = new Date().getTime();
         downloadXHR = new XMLHttpRequest();
-        downloadXHR.open('GET', 'https://httpbin.org/bytes/5000000', true); // 5 MB file
+        downloadXHR.open('GET', `https://httpbin.org/bytes/${fileSize}`, true); // Dynamic file size
 
         downloadXHR.onprogress = function(event) {
             if (event.lengthComputable) {
                 const percentComplete = (event.loaded / event.total) * 100;
                 $('#progressBar').css('width', `${percentComplete}%`).attr('aria-valuenow', percentComplete);
                 $('#downloadSpeed').text(Math.round(percentComplete) + '%');
-                $('.circle.download').fadeIn(500); // Show download circle
+                $('.circle.download').fadeIn(500);
             }
         };
 
@@ -177,7 +179,12 @@
             $('#totalTime').text((totalDuration + duration).toFixed(2) + ' seconds');
             totalDuration += duration;
 
-            $('.circle.download').css('transform', 'scale(1.2)'); // Animate download circle
+            // Increase file size if speed is greater than 10 Mbps
+            if (speedMbps > 10) {
+                fileSize *= 2; // Double the file size
+            }
+
+            $('.circle.download').css('transform', 'scale(1.2)');
             setTimeout(() => {
                 $('.circle.download').css('transform', 'scale(1)');
             }, 500);
@@ -190,15 +197,15 @@
 
     function uploadTest() {
         const startTime = new Date().getTime();
-        const data = new Blob(new Array(5 * 1024 * 1024).fill('X')); // 5 MB data
+        const data = new Blob(new Array(fileSize).fill('X')); // Dynamic file size for upload
         uploadXHR = new XMLHttpRequest();
-        uploadXHR.open('POST', 'https://httpbin.org/post', true); // Endpoint for uploading
+        uploadXHR.open('POST', 'https://httpbin.org/post', true);
 
         uploadXHR.onprogress = function(event) {
             if (event.lengthComputable) {
                 const percentComplete = (event.loaded / event.total) * 100;
                 $('#uploadSpeed').text(Math.round(percentComplete) + '%');
-                $('.circle.upload').fadeIn(500); // Show upload circle
+                $('.circle.upload').fadeIn(500);
             }
         };
 
@@ -212,7 +219,7 @@
             $('#totalTime').text((totalDuration + duration).toFixed(2) + ' seconds');
             totalDuration += duration;
 
-            $('.circle.upload').css('transform', 'scale(1.2)'); // Animate upload circle
+            $('.circle.upload').css('transform', 'scale(1.2)');
             setTimeout(() => {
                 $('.circle.upload').css('transform', 'scale(1)');
             }, 500);
