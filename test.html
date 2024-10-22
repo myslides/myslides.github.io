@@ -8,7 +8,7 @@
     <style>
         body {
             background-color: #f8f9fa;
-            padding-bottom: 80px; /* Add padding to avoid content overlap */
+            padding-bottom: 5rem; /* Space for the footer */
         }
         .navbar {
             margin-bottom: 20px;
@@ -31,6 +31,7 @@
             transition: all 0.5s;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
         .circle.download {
             border-color: #28a745;
@@ -43,11 +44,24 @@
             font-size: 1.2rem;
             color: #333;
         }
+        .loading {
+            position: absolute;
+            border: 10px solid transparent;
+            border-top-color: #007bff;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         footer {
             background-color: #343a40;
             color: white;
             padding: 20px 0;
-            position: relative; /* Change to relative to avoid overlapping */
+            position: relative;
             width: 100%;
             bottom: 0;
             left: 0;
@@ -78,9 +92,11 @@
     
     <div class="mt-5">
         <div class="circle download">
+            <div class="loading"></div>
             <div id="downloadSpeed" class="percentage">0%</div>
         </div>
         <div class="circle upload">
+            <div class="loading"></div>
             <div id="uploadSpeed" class="percentage">0%</div>
         </div>
     </div>
@@ -166,6 +182,7 @@
                 $('#progressBar').css('width', `${percentComplete}%`).attr('aria-valuenow', percentComplete);
                 $('#downloadSpeed').text(Math.round(percentComplete) + '%');
                 $('.circle.download').fadeIn(500);
+                $('.loading').show(); // Show loading animation
             }
         };
 
@@ -189,6 +206,7 @@
                 $('.circle.download').css('transform', 'scale(1)');
             }, 500);
 
+            $('.loading').hide(); // Hide loading animation
             uploadTest(); // Start upload test after download
         };
 
@@ -206,6 +224,7 @@
                 const percentComplete = (event.loaded / event.total) * 100;
                 $('#uploadSpeed').text(Math.round(percentComplete) + '%');
                 $('.circle.upload').fadeIn(500);
+                $('.loading').show(); // Show loading animation
             }
         };
 
@@ -224,6 +243,7 @@
                 $('.circle.upload').css('transform', 'scale(1)');
             }, 500);
 
+            $('.loading').hide(); // Hide loading animation
             $('.loading-animation').hide();
             $('#stopTest').hide();
             $('#startTest').show();
