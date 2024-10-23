@@ -18,11 +18,11 @@ document.getElementById('startTest').addEventListener('click', async () => {
 
 async function speedTest() {
     // Simulate speed test (replace with actual logic)
-    const downloadSpeed = Math.random() * 100; // Mock download speed
-    const uploadSpeed = Math.random() * 100; // Mock upload speed
+    const downloadSpeed = (Math.random() * 100).toFixed(2); // Mock download speed
+    const uploadSpeed = (Math.random() * 100).toFixed(2); // Mock upload speed
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve({ download: downloadSpeed.toFixed(2), upload: uploadSpeed.toFixed(2) });
+            resolve({ download: downloadSpeed, upload: uploadSpeed });
         }, 2000); // Simulate delay
     });
 }
