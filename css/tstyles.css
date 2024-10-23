@@ -1,0 +1,15 @@
+.circle {
+    position: relative;
+}
+
+.arrow {
+    position: absolute;
+}
+
+#downloadResult {
+    top: 20%; /* Adjust position */
+}
+
+#uploadResult {
+    bottom: 20%; /* Adjust position */
+}
