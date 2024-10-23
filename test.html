@@ -3,256 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internet Speed Test</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            padding-bottom: 5rem; /* Space for the footer */
-        }
-        .navbar {
-            margin-bottom: 20px;
-        }
-        .loading-animation {
-            display: none;
-            margin: 20px 0;
-        }
-        .circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 10px solid #007bff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            margin: 20px auto;
-            font-size: 1.5rem;
-            transition: all 0.5s;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        .circle.download {
-            border-color: #28a745;
-        }
-        .circle.upload {
-            border-color: #dc3545;
-        }
-        .percentage {
-            position: absolute;
-            font-size: 1.2rem;
-            color: #333;
-        }
-        .loading {
-            position: absolute;
-            border: 10px solid transparent;
-            border-top-color: #007bff;
-            border-radius: 50%;
-            width: 100%;
-            height: 100%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px 0;
-            position: relative;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-        }
-    </style>
+    <title>Speed Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/power-css/dist/power.min.css">
+    <link rel="stylesheet" href="css/tstyles.css">
 </head>
 <body>
+    <nav class="navbar bg-gray-800 text-white p-4 sticky top-0">Speed Test</nav>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Speed Test</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</nav>
-
-<div class="container text-center">
-    <button id="startTest" class="btn btn-primary mt-3">Restart Test</button>
-    <button id="stopTest" class="btn btn-danger mt-3" style="display: none;">Stop Test</button>
-
-    <div id="browserInfo" class="mt-3"></div>
-    
-    <div class="loading-animation">
-        <h4>Testing Speed...</h4>
-        <div class="progress">
-            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <main class="flex flex-col items-center justify-center flex-grow">
+        <h1 class="text-2xl mb-4">Internet Speed Test</h1>
+        <button id="startTest" class="btn btn-blue mb-4">Start Test</button>
+        <div id="results" class="hidden text-center">
+            <div class="circle bg-gray-200 border-4 border-gray-400 rounded-full w-32 h-32 flex items-center justify-center relative">
+                <div id="downloadResult" class="text-2xl transform transition-transform duration-500">↓</div>
+                <div id="uploadResult" class="text-2xl transform transition-transform duration-500">↑</div>
+            </div>
+            <p id="averageResult" class="mt-4"></p>
         </div>
-    </div>
-    
-    <div class="mt-5">
-        <div class="circle download">
-            <div class="loading"></div>
-            <div id="downloadSpeed" class="percentage">0%</div>
-        </div>
-        <div class="circle upload">
-            <div class="loading"></div>
-            <div id="uploadSpeed" class="percentage">0%</div>
-        </div>
-    </div>
+    </main>
 
-    <div class="mt-3">
-        <h5>Download Speed: <span id="downloadResult">0 Mbps</span></h5>
-        <h5>Upload Speed: <span id="uploadResult">0 Mbps</span></h5>
-        <h5>Total Time: <span id="totalTime">0 seconds</span></h5>
-    </div>
-</div>
+    <footer class="footer bg-gray-800 text-white p-4 sticky bottom-0">© 2024 Speed Test Inc.</footer>
 
-<footer class="text-center">
-    <p>&copy; 2024 Speed Test. All Rights Reserved.</p>
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script>
-    let isTesting = false;
-    let downloadXHR, uploadXHR;
-    let totalDuration = 0;
-    let fileSize = 5 * 1024 * 1024; // Start with 5 MB
-
-    $(document).ready(function() {
-        displayBrowserInfo();
-        startTest();
-
-        $('#startTest').click(function() {
-            startTest();
-        });
-
-        $('#stopTest').click(function() {
-            stopTest();
-        });
-    });
-
-    function displayBrowserInfo() {
-        const userAgent = navigator.userAgent;
-        const browserInfo = `
-            <strong>Browser Info:</strong> ${userAgent}
-        `;
-        $('#browserInfo').html(browserInfo);
-    }
-
-    function startTest() {
-        if (isTesting) return;
-
-        isTesting = true;
-        totalDuration = 0;
-        $('.loading-animation').show();
-        $('.circle').hide();
-        $('#progressBar').css('width', '0%').attr('aria-valuenow', 0);
-        $('#stopTest').show();
-        $('#startTest').hide();
-        $('#downloadResult').text('Calculating...');
-        $('#uploadResult').text('Calculating...');
-        $('#totalTime').text('Calculating...');
-
-        downloadTest();
-    }
-
-    function stopTest() {
-        isTesting = false;
-        if (downloadXHR) {
-            downloadXHR.abort();
-        }
-        if (uploadXHR) {
-            uploadXHR.abort();
-        }
-        $('.loading-animation').hide();
-        $('.circle').hide();
-        $('#stopTest').hide();
-        $('#startTest').show();
-    }
-
-    function downloadTest() {
-        const startTime = new Date().getTime();
-        downloadXHR = new XMLHttpRequest();
-        downloadXHR.open('GET', `https://httpbin.org/bytes/${fileSize}`, true); // Dynamic file size
-
-        downloadXHR.onprogress = function(event) {
-            if (event.lengthComputable) {
-                const percentComplete = (event.loaded / event.total) * 100;
-                $('#progressBar').css('width', `${percentComplete}%`).attr('aria-valuenow', percentComplete);
-                $('#downloadSpeed').text(Math.round(percentComplete) + '%');
-                $('.circle.download').fadeIn(500);
-                $('.loading').show(); // Show loading animation
-            }
-        };
-
-        downloadXHR.onload = function() {
-            const endTime = new Date().getTime();
-            const duration = (endTime - startTime) / 1000; // Duration in seconds
-            const bitsLoaded = downloadXHR.response.length * 8; // Convert bytes to bits
-            const speedMbps = (bitsLoaded / duration / 1024 / 1024).toFixed(2); // Speed in Mbps
-            
-            $('#downloadResult').text(speedMbps + ' Mbps');
-            $('#totalTime').text((totalDuration + duration).toFixed(2) + ' seconds');
-            totalDuration += duration;
-
-            // Increase file size if speed is greater than 10 Mbps
-            if (speedMbps > 10) {
-                fileSize *= 2; // Double the file size
-            }
-
-            $('.circle.download').css('transform', 'scale(1.2)');
-            setTimeout(() => {
-                $('.circle.download').css('transform', 'scale(1)');
-            }, 500);
-
-            $('.loading').hide(); // Hide loading animation
-            uploadTest(); // Start upload test after download
-        };
-
-        downloadXHR.send();
-    }
-
-    function uploadTest() {
-        const startTime = new Date().getTime();
-        const data = new Blob(new Array(fileSize).fill('X')); // Dynamic file size for upload
-        uploadXHR = new XMLHttpRequest();
-        uploadXHR.open('POST', 'https://httpbin.org/post', true);
-
-        uploadXHR.onprogress = function(event) {
-            if (event.lengthComputable) {
-                const percentComplete = (event.loaded / event.total) * 100;
-                $('#uploadSpeed').text(Math.round(percentComplete) + '%');
-                $('.circle.upload').fadeIn(500);
-                $('.loading').show(); // Show loading animation
-            }
-        };
-
-        uploadXHR.onload = function() {
-            const endTime = new Date().getTime();
-            const duration = (endTime - startTime) / 1000; // Duration in seconds
-            const bitsLoaded = data.size * 8; // Convert bytes to bits
-            const speedMbps = (bitsLoaded / duration / 1024 / 1024).toFixed(2); // Speed in Mbps
-            
-            $('#uploadResult').text(speedMbps + ' Mbps');
-            $('#totalTime').text((totalDuration + duration).toFixed(2) + ' seconds');
-            totalDuration += duration;
-
-            $('.circle.upload').css('transform', 'scale(1.2)');
-            setTimeout(() => {
-                $('.circle.upload').css('transform', 'scale(1)');
-            }, 500);
-
-            $('.loading').hide(); // Hide loading animation
-            $('.loading-animation').hide();
-            $('#stopTest').hide();
-            $('#startTest').show();
-            isTesting = false;
-        };
-
-        uploadXHR.send(data);
-    }
-</script>
-
+    <script src="js/tscript.js"></script>
 </body>
 </html>
