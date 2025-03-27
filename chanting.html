@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Bootstrap-based mantra chant counter with custom text input.">
     <meta name="keywords" content="mantra counter, chant counter, tap counter, meditation tool">
     <meta name="author" content="Your Name">
@@ -10,6 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        html {
+            touch-action: manipulation;
+        }
         body {
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
@@ -19,15 +22,18 @@
             text-align: center;
             padding: 20px;
             background-color: #f8f9fa;
+            touch-action: manipulation;
         }
         .container-fluid {
             max-width: 600px;
+            touch-action: manipulation;
         }
         #counter {
             font-size: 6rem;
             font-weight: 700;
             transition: transform 0.1s;
             margin-bottom: 30px;
+            touch-action: manipulation;
         }
         #counter:active {
             transform: scale(0.95);
@@ -35,42 +41,70 @@
         .btn-lg {
             font-size: 2rem;
             padding: 15px;
+            touch-action: manipulation;
         }
         input, select {
             font-size: 1.5rem;
             padding: 10px;
             text-align: center;
+            touch-action: manipulation;
         }
         #displayText {
             font-size: 2rem;
             margin: 20px 0;
             word-wrap: break-word;
             min-height: 60px;
+            touch-action: manipulation;
+            white-space: pre-line;
+            line-height: 1.5;
         }
         .btn-tap {
             transition: all 0.1s;
             margin-bottom: 20px;
+            touch-action: manipulation;
         }
         .btn-tap:active {
             transform: scale(0.98);
         }
         .share-section {
             margin-top: 20px;
+            touch-action: manipulation;
         }
         #shareLink {
             cursor: pointer;
+            touch-action: manipulation;
         }
         .reset-note {
             font-size: 0.9rem;
             color: #6c757d;
             margin-top: 10px;
+            touch-action: manipulation;
         }
         .btn-reset {
             margin-top: 30px;
             opacity: 0.7;
+            touch-action: manipulation;
         }
         .btn-reset:hover {
             opacity: 1;
+        }
+        .mantra-option {
+            display: block;
+            line-height: 1.4;
+        }
+        .devanagari {
+            font-size: 1.3em;
+            display: block;
+        }
+        .romanized {
+            font-style: italic;
+            color: #666;
+            display: block;
+            font-size: 0.9em;
+        }
+        option {
+            padding: 8px 4px;
+            border-bottom: 1px solid #eee;
         }
     </style>
 </head>
@@ -80,15 +114,23 @@
         <select id="mantraSelect" class="form-select mb-3">
             <option value="">Select a Mantra</option>
             <optgroup label="Popular Mantras">
-                <option value="Om Namah Shivaya">Om Namah Shivaya</option>
-                <option value="Om Mani Padme Hum">Om Mani Padme Hum</option>
-                <option value="Hare Krishna">Hare Krishna</option>
+                <option value="ॐ:::Om">ॐ (Om)</option>
+                <option value="ॐ नमः शिवाय:::Om Namah Shivaya">ॐ नमः शिवाय (Om Namah Shivaya)</option>
+                <option value="ॐ गं गणपतये नमः:::Om Gam Ganapataye Namah">ॐ गं गणपतये नमः (Om Gam Ganapataye Namah)</option>
+                <option value="ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय मामृतात्:::Om Tryambakam Yajamahe Sugandhim Pushtivardhanam Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat">ॐ त्र्यम्बकं यजामहे... (Om Tryambakam...)</option>
+                <option value="ॐ भूर् भुवः स्वः तत्सवितुर्वरेण्यम् भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात्:::Om Bhur Bhuvah Swaha Tat Savitur Varenyam Bhargo Devasya Dhīmahi Dhiyo Yo Nah Prachodayat">ॐ भूर् भुवः स्वः... (Gayatri Mantra)</option>
+                <option value="हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे हरे राम हरे राम राम राम हरे हरे:::Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare">हरे कृष्ण हरे कृष्ण... (Hare Krishna)</option>
+                <option value="ॐ श्रीं महालक्ष्म्यै नमः:::Om Shreem Mahalakshmyai Namah">ॐ श्रीं महालक्ष्म्यै नमः (Om Shreem...)</option>
+                <option value="ॐ ऐं सरस्वत्यै नमः:::Om Aim Saraswatyai Namah">ॐ ऐं सरस्वत्यै नमः (Om Aim...)</option>
+                <option value="ॐ नमो नारायणाय:::Om Namo Narayanaya">ॐ नमो नारायणाय (Om Namo...)</option>
+                <option value="ॐ हं हनुमते नमः:::Om Ham Hanumate Namah">ॐ हं हनुमते नमः (Om Ham...)</option>
             </optgroup>
             <optgroup label="Recent Mantras" id="recentMantras">
                 <!-- Recent mantras will be added here -->
             </optgroup>
             <option value="custom">Enter your own Mantra</option>
         </select>
+        
         <input type="text" id="customText" class="form-control text-center fs-3 rounded mb-3" placeholder="Enter your mantra" style="display: none;">
         <button class="btn btn-success w-100 mb-3" id="confirmMantra" style="display: none;">Confirm Mantra</button>
         <div id="displayText" class="border p-3 bg-white rounded"></div>
@@ -125,19 +167,20 @@
         const urlParams = new URLSearchParams(window.location.search);
         const urlMantra = urlParams.get('mantra');
         if (urlMantra) {
-            setMantra(decodeURIComponent(urlMantra));
+            setMantra(urlMantra + ":::" + urlMantra); // For shared links, use same text for both
         } else if (currentMantra) {
             setMantra(currentMantra);
         }
         
-        function setMantra(mantra) {
-            document.getElementById("displayText").innerHTML = mantra;
-            currentMantra = mantra;
-            localStorage.setItem('currentMantra', mantra);
+        function setMantra(mantraValue) {
+            const [devanagari, romanized] = mantraValue.split(":::");
+            document.getElementById("displayText").innerHTML = devanagari + (romanized ? "\n" + romanized : "");
+            currentMantra = mantraValue;
+            localStorage.setItem('currentMantra', mantraValue);
             
-            // Add to recent mantras if not already there
-            if (!recentMantras.includes(mantra)) {
-                recentMantras.unshift(mantra);
+            // Add to recent mantras if not already there and not empty
+            if (devanagari && !recentMantras.includes(mantraValue)) {
+                recentMantras.unshift(mantraValue);
                 // Keep only last 5 mantras
                 if (recentMantras.length > 5) {
                     recentMantras = recentMantras.slice(0, 5);
@@ -149,24 +192,25 @@
             // Select in dropdown if it exists
             const select = document.getElementById("mantraSelect");
             for (let i = 0; i < select.options.length; i++) {
-                if (select.options[i].value === mantra) {
+                if (select.options[i].value === mantraValue) {
                     select.selectedIndex = i;
                     return;
                 }
             }
             // If not found, show in custom
             select.value = "custom";
-            document.getElementById("customText").value = mantra;
+            document.getElementById("customText").value = devanagari;
             document.getElementById("customText").style.display = "block";
         }
         
         function updateRecentMantrasDropdown() {
             const recentGroup = document.getElementById("recentMantras");
             recentGroup.innerHTML = '';
-            recentMantras.forEach(mantra => {
+            recentMantras.forEach(mantraValue => {
+                const [devanagari, romanized] = mantraValue.split(":::");
                 const option = document.createElement("option");
-                option.value = mantra;
-                option.textContent = mantra;
+                option.value = mantraValue;
+                option.textContent = devanagari.length > 20 ? devanagari.substring(0, 17) + '...' : devanagari;
                 recentGroup.appendChild(option);
             });
         }
@@ -191,12 +235,15 @@
         }
         
         function copyShareLink() {
-            if (!currentMantra) {
+            const displayText = document.getElementById("displayText").textContent;
+            if (!displayText.trim()) {
                 alert("Please select or enter a mantra first");
                 return;
             }
             
-            const shareUrl = `${window.location.origin}${window.location.pathname}?mantra=${encodeURIComponent(currentMantra)}`;
+            // Get first line (Devanagari) for sharing
+            const shareMantra = displayText.split('\n')[0];
+            const shareUrl = `${window.location.origin}${window.location.pathname}?mantra=${encodeURIComponent(shareMantra)}`;
             const shareInput = document.getElementById("shareLink");
             shareInput.value = shareUrl;
             shareInput.select();
@@ -229,7 +276,8 @@
         document.getElementById("confirmMantra").addEventListener("click", function() {
             let customTextValue = document.getElementById("customText").value.trim();
             if (customTextValue) {
-                setMantra(customTextValue);
+                // For custom mantras, we only store the single line
+                setMantra(customTextValue + ":::");
                 updateShareLink();
             }
         });
@@ -242,8 +290,10 @@
         });
         
         function updateShareLink() {
-            if (currentMantra) {
-                const shareUrl = `${window.location.origin}${window.location.pathname}?mantra=${encodeURIComponent(currentMantra)}`;
+            const displayText = document.getElementById("displayText").textContent;
+            if (displayText.trim()) {
+                const shareMantra = displayText.split('\n')[0];
+                const shareUrl = `${window.location.origin}${window.location.pathname}?mantra=${encodeURIComponent(shareMantra)}`;
                 document.getElementById("shareLink").value = shareUrl;
             }
         }
